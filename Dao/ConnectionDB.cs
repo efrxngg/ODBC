@@ -58,7 +58,7 @@ namespace Odbc.Dao
                 WriteLine($"Error capturado: {se.Message}");
             }
             finally
-            {   
+            {
                 _connection = null;
             }
         }

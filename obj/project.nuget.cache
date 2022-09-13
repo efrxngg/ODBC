@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PBVnqBxfn0rIJH/4ugA6oc+qo96MnzBtLE+5fqGSLhzWG+myO6sH+i+bLDEbx86e19kA/cuwKM/cZysz51624w==",
+  "dgSpecHash": "XVvQ7BzgkdoqbArcaK4TXoYk0Vpz/Dj9xGoifpHB5vqjb2dbNIbtl9nzEApwfqaklHATs2ei5b9vJbF2z5tcpQ==",
   "success": true,
-  "projectFilePath": "C:\\efrxngg\\C#\\WPF\\CDBC\\Odbc.csproj",
+  "projectFilePath": "C:\\efrxngg\\C#\\WPF\\ODBC\\Odbc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gefren\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\gefren\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

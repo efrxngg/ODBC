@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\efrxngg\\C#\\WPF\\CDBC\\Odbc.csproj": {}
+    "C:\\efrxngg\\C#\\WPF\\ODBC\\Odbc.csproj": {}
   },
   "projects": {
-    "C:\\efrxngg\\C#\\WPF\\CDBC\\Odbc.csproj": {
+    "C:\\efrxngg\\C#\\WPF\\ODBC\\Odbc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\efrxngg\\C#\\WPF\\CDBC\\Odbc.csproj",
+        "projectUniqueName": "C:\\efrxngg\\C#\\WPF\\ODBC\\Odbc.csproj",
         "projectName": "Odbc",
-        "projectPath": "C:\\efrxngg\\C#\\WPF\\CDBC\\Odbc.csproj",
+        "projectPath": "C:\\efrxngg\\C#\\WPF\\ODBC\\Odbc.csproj",
         "packagesPath": "C:\\Users\\gefren\\.nuget\\packages\\",
-        "outputPath": "C:\\efrxngg\\C#\\WPF\\CDBC\\obj\\",
+        "outputPath": "C:\\efrxngg\\C#\\WPF\\ODBC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
