@@ -1,5 +1,6 @@
 ﻿using static System.Console;
 using Odbc.Dao;
+using Odbc.App;
 
 namespace Odbc
 {
@@ -8,13 +9,8 @@ namespace Odbc
         static void Main()
         {
             WriteLine("Conexion A Base de datos SQL Server");
-            //var cone = new ConnectionDB("Data Source=localhost;Initial Catalog=master;User ID=sa;Password=Adm1n2002;Application Name=introduccion; Encrypt=False");
-            //var cone = new ConnectionDB("");
-            //WriteLine(cone.Conectar());
-
-            CrudUsuario crudUsuario = new CrudUsuario();
-            var test = crudUsuario.findAllUsers();
-
+            CrudUsuarioImpl crudUsuarioImpl = new CrudUsuarioImpl(new CrudUsuario());
+            crudUsuarioImpl.findAllUsuarios();
 
         }
     }
