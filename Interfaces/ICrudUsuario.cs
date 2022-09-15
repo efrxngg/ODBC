@@ -9,6 +9,7 @@ namespace Odbc.Interfaces
 {
     public interface ICrudUsuario
     {
-        public List<Usuario> findAllUsers();
+        public int SaveUser(Usuario user);
+        public List<Usuario> FindAllUsers();
     }
 }

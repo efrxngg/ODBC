@@ -13,14 +13,19 @@ namespace Odbc.App
     {
         private ICrudUsuario _objUsuario;
 
+        public int SaveUser(Usuario user)
+        {
+            return _objUsuario.SaveUser(user);
+        }
+
         public CrudUsuarioImpl(ICrudUsuario objUsuario)
         {
             _objUsuario = objUsuario;
         }
 
-        public void findAllUsuarios()
+        public void FindAllUsuarios()
         {
-            var lista = _objUsuario.findAllUsers();
+            var lista = _objUsuario.FindAllUsers();
             listarUsuarios(lista);
         }
 

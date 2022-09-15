@@ -13,30 +13,67 @@ namespace Odbc.Dao
 {
     public class CrudUsuario : ICrudUsuario
     {
-        #region
+        #region Atributos
         private ConnectionDB _cone;
         private string _cadenaConexion = "Data Source=localhost;Initial Catalog=introduccion;User ID=sa;Password=Adm1n2002;Application Name=usuario; Encrypt=False";
         #endregion
-        public List<Usuario> findAllUsers()
+
+        #region Metodos
+        public int SaveUser(Usuario user)
+        {
+            _cone = new ConnectionDB(_cadenaConexion);
+            var cursor = _cone.Conectar();
+
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("insert into usuario(cedula, nombre) values(@cedula, @nombre)", cursor);
+                sqlCommand.Parameters.AddWithValue("@cedula", user.Cedula);
+                sqlCommand.Parameters.AddWithValue("@nombre", user.Nombre);
+
+                return sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                WriteLine(ex.Message);
+            }
+            return 0;
+
+        }
+
+        public List<Usuario> FindAllUsers()
         {
             var list = new List<Usuario>();
             _cone = new ConnectionDB(_cadenaConexion);
             var cursor = _cone.Conectar();
 
-            SqlCommand sqlCommand = new SqlCommand("select * from usuario", cursor);
-            var reader = sqlCommand.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                list.Add(new Usuario
+                SqlCommand sqlCommand = new SqlCommand("select * from usuario", cursor);
+                var reader = sqlCommand.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    Id = reader.GetInt32("id"),
-                    Cedula = reader.GetString("cedula"),
-                    Nombre = reader.GetString("nombre")
-                });
+                    list.Add(new Usuario
+                    {
+                        Id = reader.GetInt32("id"),
+                        Cedula = reader.GetString("cedula"),
+                        Nombre = reader.GetString("nombre")
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteLine(ex.Message);
+            }
+            finally
+            {
+                _cone.Desconectar();
             }
 
             return list;
         }
+
+
     }
+    #endregion
 }
