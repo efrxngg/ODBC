@@ -19,7 +19,7 @@ namespace Odbc.Dao
         #endregion
 
         #region Metodos
-        public int SaveUser(Usuario user)
+        public int SaveUser(User user)
         {
             _cone = new ConnectionDB(_cadenaConexion);
             var cursor = _cone.Conectar();
@@ -40,9 +40,9 @@ namespace Odbc.Dao
 
         }
 
-        public List<Usuario> FindAllUsers()
+        public List<User> FindAllUsers()
         {
-            var list = new List<Usuario>();
+            var list = new List<User>();
             _cone = new ConnectionDB(_cadenaConexion);
             var cursor = _cone.Conectar();
 
@@ -53,7 +53,7 @@ namespace Odbc.Dao
 
                 while (reader.Read())
                 {
-                    list.Add(new Usuario
+                    list.Add(new User
                     {
                         Id = reader.GetInt32("id"),
                         Cedula = reader.GetString("cedula"),
@@ -73,7 +73,46 @@ namespace Odbc.Dao
             return list;
         }
 
+        public int UpdateUser(User user, int id)
+        {
 
+            _cone = new ConnectionDB(_cadenaConexion);
+            var cursor = _cone.Conectar();
+
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("update usuario set cedula=@cedula, nombre=@nombre where id=@id", cursor);
+                sqlCommand.Parameters.AddWithValue("@cedula", user.Cedula);
+                sqlCommand.Parameters.AddWithValue("@nombre", user.Nombre);
+                sqlCommand.Parameters.AddWithValue("@id",id);
+
+                return sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                WriteLine(ex.Message);
+            }
+            return 0;
+        }
+
+        public int DeleteUser(int id)
+        {
+            _cone = new ConnectionDB(_cadenaConexion);
+            var cursor = _cone.Conectar();
+
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("delete from usuario where id=@id", cursor);
+                sqlCommand.Parameters.AddWithValue("@id", id);
+
+                return sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                WriteLine(ex.Message);
+            }
+            return 0;
+        }
     }
     #endregion
 }

@@ -13,7 +13,7 @@ namespace Odbc.App
     {
         private ICrudUsuario _objUsuario;
 
-        public int SaveUser(Usuario user)
+        public int SaveUser(User user)
         {
             return _objUsuario.SaveUser(user);
         }
@@ -29,8 +29,17 @@ namespace Odbc.App
             listarUsuarios(lista);
         }
 
+        public int UpdateUser(User user, int id)
+        {
+            return _objUsuario.UpdateUser(user, id);
+        }
 
-        private void listarUsuarios(List<Usuario> lista)
+        public int DeleteUser(int id) 
+        {
+            return _objUsuario.DeleteUser(id);
+        }
+
+        private void listarUsuarios(List<User> lista)
         {
             foreach (var user in lista)
             {
